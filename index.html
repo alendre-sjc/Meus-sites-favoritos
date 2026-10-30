@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<!--
+===============================================================
+COMO ESTA PÁGINA FUNCIONA: explicada na ordem em que é lida
+===============================================================
+Este arquivo é comentado "Ato" por "Ato", seguindo a ORDEM em
+que o navegador lê a página. O navegador lê o HTML de cima para
+baixo, uma tag de cada vez, e vai montando a página na tela.
+
+ATENÇÃO: diferente de uma linguagem de programação, o HTML não
+"calcula" nada. Ele é uma LINGUAGEM DE MARCAÇÃO: serve para
+montar o esqueleto da página, marcando o que é título, o que é
+parágrafo, o que é imagem e o que é link.
+
+Quase toda tag tem ABERTURA e FECHAMENTO:
+    <p> abre o parágrafo     </p> fecha o parágrafo
+O que fica entre as duas é "marcado" por aquela tag.
+Algumas tags não precisam de fechamento, como <img> e <meta>.
+
+Para executar: salve com Ctrl + S e dê dois cliques no arquivo
+index.html. Ele abre no navegador. Depois de alterar o código,
+salve de novo e aperte F5 no navegador para atualizar.
+Pelo terminal do VS Code, dentro da pasta do projeto:
+    start index.html
+
+Organização da pasta do projeto:
+    AtividadeAgenda12/            => pasta raiz
+     |== index.html               => esta página
+     |== README.md                => descrição do projeto
+     |== imagens/                 => subpasta com as imagens
+          |== linkedin.png
+          |== github.png
+          |== instagram.png
+          |== spotify.png
+          |== youtube.png
+
+Resumo da peça inteira:
+  Ato 0  => Informa ao navegador a versão do HTML (HTML5)
+  Ato 1  => Abre a página e define o idioma (português)
+  Ato 2  => Cabeçalho: configurações da página (meta tags)
+  Ato 3  => Título que aparece na aba do navegador
+  Ato 4  => Corpo da página: título principal e apresentação
+  Ato 5  => Site 1: LinkedIn (nome, imagem com link, legenda, link)
+  Ato 6  => Site 2: GitHub (mesma lógica do Ato 5)
+  Ato 7  => Site 3: Instagram (mesma lógica do Ato 5)
+  Ato 8  => Site 4: Spotify Web (mesma lógica do Ato 5)
+  Ato 9  => Site 5: YouTube (mesma lógica do Ato 5)
+  Ato 10 => Fonte das imagens
+  Ato 11 => Fechamento do corpo e da página
+===============================================================
+-->
+
+<!--
+===============================================================
+Ato 0: Declaração do tipo de documento
+===============================================================
+<!DOCTYPE html> (primeira linha do arquivo) NÃO é uma tag.
+É uma instrução especial que avisa ao navegador: "esta página
+foi feita em HTML5". Por isso ela sempre vem na primeira linha,
+antes de tudo.
+===============================================================
+-->
+
+<!--
+===============================================================
+Ato 1: Abertura da página e definição do idioma
+===============================================================
+<html> abre a página. TODO o código fica entre <html> e </html>
+(o fechamento está no Ato 11).
+
+lang="pt-BR" é um ATRIBUTO. Atributo é uma característica que
+damos à tag, e sempre tem um NOME e um VALOR entre aspas:
+    nome => lang      valor => "pt-BR"
+Ele informa que o idioma da página é português do Brasil. Se
+faltar, não dá erro, mas ele ajuda os sites de busca (como o
+Google) e a tradução automática do navegador.
+===============================================================
+-->
+<html lang="pt-BR">
+
+<!--
+===============================================================
+Ato 2: Cabeçalho da página (configurações)
+===============================================================
+<head> é o cabeçalho. Tudo que fica aqui são CONFIGURAÇÕES da
+página. Nada do cabeçalho aparece dentro da página.
+
+A tag <meta> guarda METADADOS, ou seja, informações sobre a
+própria página. Ela não precisa de fechamento.
+  - charset="UTF-8"
+      Define a codificação de caracteres. Permite usar acentos,
+      "ç" e outros caracteres do português sem aparecer
+      símbolos estranhos.
+  - http-equiv="X-UA-Compatible" content="IE=edge"
+      Garante compatibilidade com navegadores mais antigos,
+      como o Internet Explorer.
+  - name="viewport"
+      É a base da RESPONSIVIDADE. Ele pega o tamanho da tela do
+      aparelho (celular, tablet, notebook) e adapta a página.
+        width=device-width => largura igual à da tela
+        initial-scale=1.0  => zoom inicial normal (100%)
+      A vírgula separa os dois valores dentro do content.
+===============================================================
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--
+    ===========================================================
+    Ato 3: Título da aba do navegador
+    ===========================================================
+    <title> fica DENTRO do <head>. O texto entre <title> e
+    </title> aparece na ABA do navegador, e não dentro da página.
+    Se ficar vazio, a aba mostra só o nome do arquivo
+    (index.html).
+    ===========================================================
+    -->
+    <title>Meus sites favoritos</title>
+</head>
+
+<!--
+===============================================================
+Ato 4: Corpo da página, título principal e apresentação
+===============================================================
+<body> é o corpo. TUDO que fica entre <body> e </body> APARECE
+na tela do navegador.
+
+<h1> é a tag de título. Existem seis níveis, de <h1> (o mais
+importante e com letra maior) até <h6> (o menor). O <h1> também
+ajuda o Google a entender o assunto principal da página.
+
+<p> é a tag de parágrafo. Cada <p> que abre e fecha cria um novo
+parágrafo, já com espaço e quebra de linha.
+===============================================================
+-->
+<body>
+
+    <h1>Meus sites favoritos: Alendre Luciano Silveira - SP26AO0263317 – Turma: FML – 1º DS - ETEC</h1>
+    <p>Esta página guarda os sites que eu mais uso para estudar, trabalhar e me divertir.</p>
+
+    <!--
+    ===========================================================
+    Ato 5: Site 1, LinkedIn
+    ===========================================================
+    Cada site segue SEMPRE a mesma ordem:
+      1) <h1> com o nome do site, ACIMA da imagem;
+      2) <figure>, que cria uma ÁREA reservada para a imagem;
+      3) <a> em volta da <img>, para a imagem virar LINK
+         (parte opcional da atividade);
+      4) <img>, que é a tag que realmente MOSTRA a imagem:
+           src    => OBRIGATÓRIO. Diz ONDE a imagem está:
+                     pasta "imagens" + nome + extensão (.png).
+                     O nome deve ser IGUAL ao do arquivo.
+           alt    => texto que aparece se a imagem não carregar.
+           width  => largura. Número sozinho = pixels.
+      5) <figcaption>, que é a LEGENDA da imagem e fica dentro
+         do <figure>;
+      6) <p> com um <a> dentro: o LINK abaixo da imagem.
+
+    Sobre a tag <a> (link):
+      href            => OBRIGATÓRIO. Endereço do site de destino.
+      target="_blank" => abre o link em uma NOVA ABA.
+                         (target="_self" abriria na mesma aba)
+      O texto entre <a> e </a> é o que fica clicável na tela.
+
+    ATENÇÃO ao caminho da imagem: nunca use o endereço do seu
+    computador, como C:/Users/.../linkedin.png. Em outra máquina
+    a imagem não abriria. Use sempre o caminho a partir da pasta
+    raiz: imagens/linkedin.png
+    ===========================================================
+    -->
+    <h1>LinkedIn</h1>
+    <figure>
+        <a href="https://www.linkedin.com/in/alendre-silveira" target="_blank">
+            <img src="imagens/linkedin.png" alt="Logo do LinkedIn" width="300">
+        </a>
+        <figcaption>Rede social profissional: meu perfil</figcaption>
+    </figure>
+    <p><a href="https://www.linkedin.com/in/alendre-silveira" target="_blank">Acessar meu LinkedIn</a></p>
+
+    <!--
+    ===========================================================
+    Ato 6: Site 2, GitHub
+    ===========================================================
+    Mesma lógica do Ato 5. Mudam apenas o nome do site, o
+    endereço no href, o nome da imagem no src, o alt e a legenda.
+    ===========================================================
+    -->
+    <h1>GitHub</h1>
+    <figure>
+        <a href="https://github.com/alendre-sjc" target="_blank">
+            <img src="imagens/github.png" alt="Logo do GitHub" width="300">
+        </a>
+        <figcaption>Site para guardar e compartilhar projetos: meu perfil</figcaption>
+    </figure>
+    <p><a href="https://github.com/alendre-sjc" target="_blank">Acessar meu GitHub</a></p>
+
+    <!--
+    ===========================================================
+    Ato 7: Site 3, Instagram
+    ===========================================================
+    Mesma lógica do Ato 5.
+    ===========================================================
+    -->
+    <h1>Instagram</h1>
+    <figure>
+        <a href="https://www.instagram.com/alendre.silveira" target="_blank">
+            <img src="imagens/instagram.png" alt="Logo do Instagram" width="300">
+        </a>
+        <figcaption>Rede social de fotos e vídeos: meu perfil</figcaption>
+    </figure>
+    <p><a href="https://www.instagram.com/alendre.silveira" target="_blank">Acessar meu Instagram</a></p>
+
+    <!--
+    ===========================================================
+    Ato 8: Site 4, Spotify Web
+    ===========================================================
+    Mesma lógica do Ato 5.
+    ===========================================================
+    -->
+    <h1>Spotify Web</h1>
+    <figure>
+        <a href="https://open.spotify.com/intl-pt" target="_blank">
+            <img src="imagens/spotify.png" alt="Logo do Spotify" width="300">
+        </a>
+        <figcaption>Site para ouvir músicas e podcasts</figcaption>
+    </figure>
+    <p><a href="https://open.spotify.com/intl-pt" target="_blank">Acessar o Spotify Web</a></p>
+
+    <!--
+    ===========================================================
+    Ato 9: Site 5, YouTube
+    ===========================================================
+    Mesma lógica do Ato 5.
+    ===========================================================
+    -->
+    <h1>YouTube</h1>
+    <figure>
+        <a href="https://www.youtube.com" target="_blank">
+            <img src="imagens/youtube.png" alt="Logo do YouTube" width="300">
+        </a>
+        <figcaption>Site de vídeos</figcaption>
+    </figure>
+    <p><a href="https://www.youtube.com" target="_blank">Acessar o YouTube</a></p>
+
+    <!--
+    ===========================================================
+    Ato 10: Fonte das imagens
+    ===========================================================
+    Sempre que usamos imagens de outros sites, devemos informar
+    de onde elas vieram. Aqui usamos um parágrafo simples <p>.
+    ===========================================================
+    -->
+    <p>Fonte das imagens: logotipos retirados dos próprios sites citados.</p>
+
+<!--
+===============================================================
+Ato 11: Fechamento do corpo e da página
+===============================================================
+</body> fecha o corpo (aberto no Ato 4) e </html> fecha a página
+(aberta no Ato 1). Toda tag aberta precisa ser fechada na ordem
+certa: a última aberta é a primeira a ser fechada.
+===============================================================
+-->
+</body>
+</html>
+
+<!--
+===============================================================
+Para fixar:
+  - Por que o texto do <title> (Ato 3) não aparece dentro da
+    página, e sim na aba do navegador?
+  - Por que nada que está dentro do <head> (Ato 2) aparece na
+    tela?
+  - Qual é a diferença entre o atributo src da <img> e o
+    atributo href da <a> (Ato 5)?
+  - O que acontece se o nome da imagem no src estiver diferente
+    do nome do arquivo na pasta? (dica: mude uma letra, salve,
+    aperte F5 e observe o texto do alt aparecendo)
+  - Por que não devemos usar um caminho como C:/Users/... no
+    src da imagem?
+  - O que muda se trocarmos target="_blank" por target="_self"?
+  - O que faz a imagem virar um link clicável (Ato 5)?
+===============================================================
+-->
